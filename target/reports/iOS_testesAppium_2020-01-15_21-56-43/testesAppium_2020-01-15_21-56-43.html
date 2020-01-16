@@ -1,0 +1,2410 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Jan 15, 2020 09:56:43 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>Login</a></li>
+					<li><a href='#'>InputControlsDatePicker</a></li>
+					<li><a href='#'>InputControlsInfo</a></li>
+					<li><a href='#'>Http</a></li>
+					<li><a href='#'>ImageCollection</a></li>
+					<li><a href='#'>ContentOutView</a></li>
+					<li><a href='#'>ContentScrolling</a></li>
+					<li><a href='#'>Alerts</a></li>
+					<li><a href='#'>NestedViews</a></li>
+					<li><a href='#'>Spinner</a></li>
+					<li><a href='#'>TextField</a></li>
+					<li><a href='#'>Web</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>27</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>113</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>loginInvalido</span>
+						<span class='test-time'>Jan 15, 2020 09:56:44 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 09:56:44 PM</span>
+	<span class='label end-time'>Jan 15, 2020 09:57:17 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 32s+509ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Login</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:01 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//loginInvalido_clickMenu_2020-01-15_21-57-01-438.png' width='10%' src='.//loginInvalido_clickMenu_2020-01-15_21-57-01-438.png' data-src='.//loginInvalido_clickMenu_2020-01-15_21-57-01-438.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:03 PM</td>
+					<td class='step-details'>clickLoginPage ||<img data-featherlight='.//loginInvalido_clickLoginPage_2020-01-15_21-57-03-557.png' width='10%' src='.//loginInvalido_clickLoginPage_2020-01-15_21-57-03-557.png' data-src='.//loginInvalido_clickLoginPage_2020-01-15_21-57-03-557.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:07 PM</td>
+					<td class='step-details'>usernameFill || PARAMETER: larissa<img data-featherlight='.//loginInvalido_usernameFill_2020-01-15_21-57-07-761.png' width='10%' src='.//loginInvalido_usernameFill_2020-01-15_21-57-07-761.png' data-src='.//loginInvalido_usernameFill_2020-01-15_21-57-07-761.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:12 PM</td>
+					<td class='step-details'>passwordFill || PARAMETER: aaa<img data-featherlight='.//loginInvalido_passwordFill_2020-01-15_21-57-12-067.png' width='10%' src='.//loginInvalido_passwordFill_2020-01-15_21-57-12-067.png' data-src='.//loginInvalido_passwordFill_2020-01-15_21-57-12-067.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:14 PM</td>
+					<td class='step-details'>clickLoginBtn ||<img data-featherlight='.//loginInvalido_clickLoginBtn_2020-01-15_21-57-14-144.png' width='10%' src='.//loginInvalido_clickLoginBtn_2020-01-15_21-57-14-144.png' data-src='.//loginInvalido_clickLoginBtn_2020-01-15_21-57-14-144.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:17 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>loginInvalido</span>
+						<span class='test-time'>Jan 15, 2020 09:57:18 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 09:57:18 PM</span>
+	<span class='label end-time'>Jan 15, 2020 09:57:46 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 28s+90ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Login</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:31 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//loginInvalido_clickMenu_2020-01-15_21-57-31-638.png' width='10%' src='.//loginInvalido_clickMenu_2020-01-15_21-57-31-638.png' data-src='.//loginInvalido_clickMenu_2020-01-15_21-57-31-638.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:33 PM</td>
+					<td class='step-details'>clickLoginPage ||<img data-featherlight='.//loginInvalido_clickLoginPage_2020-01-15_21-57-33-598.png' width='10%' src='.//loginInvalido_clickLoginPage_2020-01-15_21-57-33-598.png' data-src='.//loginInvalido_clickLoginPage_2020-01-15_21-57-33-598.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:37 PM</td>
+					<td class='step-details'>usernameFill || PARAMETER: cardoso<img data-featherlight='.//loginInvalido_usernameFill_2020-01-15_21-57-37-462.png' width='10%' src='.//loginInvalido_usernameFill_2020-01-15_21-57-37-462.png' data-src='.//loginInvalido_usernameFill_2020-01-15_21-57-37-462.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:41 PM</td>
+					<td class='step-details'>passwordFill || PARAMETER: ddd<img data-featherlight='.//loginInvalido_passwordFill_2020-01-15_21-57-41-288.png' width='10%' src='.//loginInvalido_passwordFill_2020-01-15_21-57-41-288.png' data-src='.//loginInvalido_passwordFill_2020-01-15_21-57-41-288.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:43 PM</td>
+					<td class='step-details'>clickLoginBtn ||<img data-featherlight='.//loginInvalido_clickLoginBtn_2020-01-15_21-57-43-477.png' width='10%' src='.//loginInvalido_clickLoginBtn_2020-01-15_21-57-43-477.png' data-src='.//loginInvalido_clickLoginBtn_2020-01-15_21-57-43-477.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:46 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>EntrarDatePicker</span>
+						<span class='test-time'>Jan 15, 2020 09:57:47 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 09:57:47 PM</span>
+	<span class='label end-time'>Jan 15, 2020 09:58:12 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 24s+662ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>InputControlsDatePicker</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:59 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//EntrarDatePicker_clickInputControls_2020-01-15_21-57-59-816.png' width='10%' src='.//EntrarDatePicker_clickInputControls_2020-01-15_21-57-59-816.png' data-src='.//EntrarDatePicker_clickInputControls_2020-01-15_21-57-59-816.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:58:12 PM</td>
+					<td class='step-details'>getDataSelecionadaIos || RETURN: Please select a date from the date picker<img data-featherlight='.//EntrarDatePicker_getDataSelecionadaIos_2020-01-15_21-58-12-228.png' width='10%' src='.//EntrarDatePicker_getDataSelecionadaIos_2020-01-15_21-58-12-228.png' data-src='.//EntrarDatePicker_getDataSelecionadaIos_2020-01-15_21-58-12-228.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:58:12 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>manipulardData</span>
+						<span class='test-time'>Jan 15, 2020 09:58:13 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 09:58:13 PM</span>
+	<span class='label end-time'>Jan 15, 2020 09:58:39 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 25s+972ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>InputControlsDatePicker</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:58:25 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//manipulardData_clickInputControls_2020-01-15_21-58-25-110.png' width='10%' src='.//manipulardData_clickInputControls_2020-01-15_21-58-25-110.png' data-src='.//manipulardData_clickInputControls_2020-01-15_21-58-25-110.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:58:39 PM</td>
+					<td class='step-details'>getDataSelecionadaIos || RETURN: Apr 13, 1995<img data-featherlight='.//manipulardData_getDataSelecionadaIos_2020-01-15_21-58-39-249.png' width='10%' src='.//manipulardData_getDataSelecionadaIos_2020-01-15_21-58-39-249.png' data-src='.//manipulardData_getDataSelecionadaIos_2020-01-15_21-58-39-249.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:58:39 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>entrarMaisInfo</span>
+						<span class='test-time'>Jan 15, 2020 09:58:40 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 09:58:40 PM</span>
+	<span class='label end-time'>Jan 15, 2020 09:58:59 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+60ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>InputControlsInfo</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:58:52 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//entrarMaisInfo_clickInputControls_2020-01-15_21-58-52-281.png' width='10%' src='.//entrarMaisInfo_clickInputControls_2020-01-15_21-58-52-281.png' data-src='.//entrarMaisInfo_clickInputControls_2020-01-15_21-58-52-281.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:58:59 PM</td>
+					<td class='step-details'>botaoInfoDisplayed || RETURN: true<img data-featherlight='.//entrarMaisInfo_botaoInfoDisplayed_2020-01-15_21-58-59-349.png' width='10%' src='.//entrarMaisInfo_botaoInfoDisplayed_2020-01-15_21-58-59-349.png' data-src='.//entrarMaisInfo_botaoInfoDisplayed_2020-01-15_21-58-59-349.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:58:59 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>clicarBotaoMaisInformacao</span>
+						<span class='test-time'>Jan 15, 2020 09:59:00 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 09:59:00 PM</span>
+	<span class='label end-time'>Jan 15, 2020 09:59:22 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+691ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>InputControlsInfo</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:12 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//clicarBotaoMaisInformacao_clickInputControls_2020-01-15_21-59-12-385.png' width='10%' src='.//clicarBotaoMaisInformacao_clickInputControls_2020-01-15_21-59-12-385.png' data-src='.//clicarBotaoMaisInformacao_clickInputControls_2020-01-15_21-59-12-385.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:20 PM</td>
+					<td class='step-details'>clicarBtnMaisInformacao ||<img data-featherlight='.//clicarBotaoMaisInformacao_clicarBtnMaisInformacao_2020-01-15_21-59-19-975.png' width='10%' src='.//clicarBotaoMaisInformacao_clicarBtnMaisInformacao_2020-01-15_21-59-19-975.png' data-src='.//clicarBotaoMaisInformacao_clicarBtnMaisInformacao_2020-01-15_21-59-19-975.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:22 PM</td>
+					<td class='step-details'>getTextoBtnMaisInformacao || RETURN: More Info<img data-featherlight='.//clicarBotaoMaisInformacao_getTextoBtnMaisInformacao_2020-01-15_21-59-22-077.png' width='10%' src='.//clicarBotaoMaisInformacao_getTextoBtnMaisInformacao_2020-01-15_21-59-22-077.png' data-src='.//clicarBotaoMaisInformacao_getTextoBtnMaisInformacao_2020-01-15_21-59-22-077.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:22 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>acessarSiteVazio</span>
+						<span class='test-time'>Jan 15, 2020 09:59:23 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 09:59:23 PM</span>
+	<span class='label end-time'>Jan 15, 2020 09:59:41 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 18s+135ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Http</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:36 PM</td>
+					<td class='step-details'>clickHttp ||<img data-featherlight='.//acessarSiteVazio_clickHttp_2020-01-15_21-59-36-077.png' width='10%' src='.//acessarSiteVazio_clickHttp_2020-01-15_21-59-36-077.png' data-src='.//acessarSiteVazio_clickHttp_2020-01-15_21-59-36-077.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:38 PM</td>
+					<td class='step-details'>clickBtnGo ||<img data-featherlight='.//acessarSiteVazio_clickBtnGo_2020-01-15_21-59-38-445.png' width='10%' src='.//acessarSiteVazio_clickBtnGo_2020-01-15_21-59-38-445.png' data-src='.//acessarSiteVazio_clickBtnGo_2020-01-15_21-59-38-445.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:41 PM</td>
+					<td class='step-details'>getTextAlerta || RETURN: Faulty URL Entered<img data-featherlight='.//acessarSiteVazio_getTextAlerta_2020-01-15_21-59-41-252.png' width='10%' src='.//acessarSiteVazio_getTextAlerta_2020-01-15_21-59-41-252.png' data-src='.//acessarSiteVazio_getTextAlerta_2020-01-15_21-59-41-252.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:41 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>acessarUrlInvalida</span>
+						<span class='test-time'>Jan 15, 2020 09:59:42 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 09:59:42 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:00:02 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 20s+533ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Http</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:54 PM</td>
+					<td class='step-details'>clickHttp ||<img data-featherlight='.//acessarUrlInvalida_clickHttp_2020-01-15_21-59-54-077.png' width='10%' src='.//acessarUrlInvalida_clickHttp_2020-01-15_21-59-54-077.png' data-src='.//acessarUrlInvalida_clickHttp_2020-01-15_21-59-54-077.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:59:58 PM</td>
+					<td class='step-details'>preencherCampoTexto || PARAMETER: www.urlinvalida.com.br<img data-featherlight='.//acessarUrlInvalida_preencherCampoTexto_2020-01-15_21-59-58-018.png' width='10%' src='.//acessarUrlInvalida_preencherCampoTexto_2020-01-15_21-59-58-018.png' data-src='.//acessarUrlInvalida_preencherCampoTexto_2020-01-15_21-59-58-018.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:00 PM</td>
+					<td class='step-details'>clickBtnGo ||<img data-featherlight='.//acessarUrlInvalida_clickBtnGo_2020-01-15_22-00-00-197.png' width='10%' src='.//acessarUrlInvalida_clickBtnGo_2020-01-15_22-00-00-197.png' data-src='.//acessarUrlInvalida_clickBtnGo_2020-01-15_22-00-00-197.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:02 PM</td>
+					<td class='step-details'>getTextAlerta || RETURN: Faulty URL Entered<img data-featherlight='.//acessarUrlInvalida_getTextAlerta_2020-01-15_22-00-02-837.png' width='10%' src='.//acessarUrlInvalida_getTextAlerta_2020-01-15_22-00-02-837.png' data-src='.//acessarUrlInvalida_getTextAlerta_2020-01-15_22-00-02-837.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:02 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>acessarUrlValida</span>
+						<span class='test-time'>Jan 15, 2020 10:00:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:00:04 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:00:24 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 20s+710ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Http</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:16 PM</td>
+					<td class='step-details'>clickHttp ||<img data-featherlight='.//acessarUrlValida_clickHttp_2020-01-15_22-00-15-972.png' width='10%' src='.//acessarUrlValida_clickHttp_2020-01-15_22-00-15-972.png' data-src='.//acessarUrlValida_clickHttp_2020-01-15_22-00-15-972.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:20 PM</td>
+					<td class='step-details'>preencherCampoTexto || PARAMETER: https://www.globo.com<img data-featherlight='.//acessarUrlValida_preencherCampoTexto_2020-01-15_22-00-20-120.png' width='10%' src='.//acessarUrlValida_preencherCampoTexto_2020-01-15_22-00-20-120.png' data-src='.//acessarUrlValida_preencherCampoTexto_2020-01-15_22-00-20-120.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:22 PM</td>
+					<td class='step-details'>clickBtnGo ||<img data-featherlight='.//acessarUrlValida_clickBtnGo_2020-01-15_22-00-22-278.png' width='10%' src='.//acessarUrlValida_clickBtnGo_2020-01-15_22-00-22-278.png' data-src='.//acessarUrlValida_clickBtnGo_2020-01-15_22-00-22-278.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:24 PM</td>
+					<td class='step-details'>verificaInputVoltar || RETURN: true<img data-featherlight='.//acessarUrlValida_verificaInputVoltar_2020-01-15_22-00-24-616.png' width='10%' src='.//acessarUrlValida_verificaInputVoltar_2020-01-15_22-00-24-616.png' data-src='.//acessarUrlValida_verificaInputVoltar_2020-01-15_22-00-24-616.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:24 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>checkIImageGalleryDisplayed</span>
+						<span class='test-time'>Jan 15, 2020 10:00:25 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:00:25 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:00:45 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+365ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>ImageCollection</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:37 PM</td>
+					<td class='step-details'>clickNativeComponets ||<img data-featherlight='.//checkIImageGalleryDisplayed_clickNativeComponets_2020-01-15_22-00-37-875.png' width='10%' src='.//checkIImageGalleryDisplayed_clickNativeComponets_2020-01-15_22-00-37-875.png' data-src='.//checkIImageGalleryDisplayed_clickNativeComponets_2020-01-15_22-00-37-875.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:39 PM</td>
+					<td class='step-details'>clickSubMenuImgCollection ||<img data-featherlight='.//checkIImageGalleryDisplayed_clickSubMenuImgCollection_2020-01-15_22-00-39-690.png' width='10%' src='.//checkIImageGalleryDisplayed_clickSubMenuImgCollection_2020-01-15_22-00-39-690.png' data-src='.//checkIImageGalleryDisplayed_clickSubMenuImgCollection_2020-01-15_22-00-39-690.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:42 PM</td>
+					<td class='step-details'>imageGalleryIsDisplayed || RETURN: true<img data-featherlight='.//checkIImageGalleryDisplayed_imageGalleryIsDisplayed_2020-01-15_22-00-42-253.png' width='10%' src='.//checkIImageGalleryDisplayed_imageGalleryIsDisplayed_2020-01-15_22-00-42-253.png' data-src='.//checkIImageGalleryDisplayed_imageGalleryIsDisplayed_2020-01-15_22-00-42-253.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:45 PM</td>
+					<td class='step-details'>imageGalleryIsDisplayed || RETURN: true<img data-featherlight='.//checkIImageGalleryDisplayed_imageGalleryIsDisplayed_2020-01-15_22-00-44-826.png' width='10%' src='.//checkIImageGalleryDisplayed_imageGalleryIsDisplayed_2020-01-15_22-00-44-826.png' data-src='.//checkIImageGalleryDisplayed_imageGalleryIsDisplayed_2020-01-15_22-00-44-826.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:45 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>visualizarTextoEscondido</span>
+						<span class='test-time'>Jan 15, 2020 10:00:46 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:00:46 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:01:16 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 30s+201ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>ContentOutView</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:00:58 PM</td>
+					<td class='step-details'>clickNativeComponets ||<img data-featherlight='.//visualizarTextoEscondido_clickNativeComponets_2020-01-15_22-00-58-519.png' width='10%' src='.//visualizarTextoEscondido_clickNativeComponets_2020-01-15_22-00-58-519.png' data-src='.//visualizarTextoEscondido_clickNativeComponets_2020-01-15_22-00-58-519.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:00 PM</td>
+					<td class='step-details'>clickSubMenuContentOutView ||<img data-featherlight='.//visualizarTextoEscondido_clickSubMenuContentOutView_2020-01-15_22-01-00-164.png' width='10%' src='.//visualizarTextoEscondido_clickSubMenuContentOutView_2020-01-15_22-01-00-164.png' data-src='.//visualizarTextoEscondido_clickSubMenuContentOutView_2020-01-15_22-01-00-164.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:16 PM</td>
+					<td class='step-details'>hiddenTextIsDisplayed || RETURN: true<img data-featherlight='.//visualizarTextoEscondido_hiddenTextIsDisplayed_2020-01-15_22-01-16-315.png' width='10%' src='.//visualizarTextoEscondido_hiddenTextIsDisplayed_2020-01-15_22-01-16-315.png' data-src='.//visualizarTextoEscondido_hiddenTextIsDisplayed_2020-01-15_22-01-16-315.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:16 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>realizarScroll</span>
+						<span class='test-time'>Jan 15, 2020 10:01:17 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:01:17 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:01:41 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 23s+680ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>ContentScrolling</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:29 PM</td>
+					<td class='step-details'>clickNativeComponets ||<img data-featherlight='.//realizarScroll_clickNativeComponets_2020-01-15_22-01-29-503.png' width='10%' src='.//realizarScroll_clickNativeComponets_2020-01-15_22-01-29-503.png' data-src='.//realizarScroll_clickNativeComponets_2020-01-15_22-01-29-503.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:31 PM</td>
+					<td class='step-details'>clickSubMenuContentScrolling ||<img data-featherlight='.//realizarScroll_clickSubMenuContentScrolling_2020-01-15_22-01-31-245.png' width='10%' src='.//realizarScroll_clickSubMenuContentScrolling_2020-01-15_22-01-31-245.png' data-src='.//realizarScroll_clickSubMenuContentScrolling_2020-01-15_22-01-31-245.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:41 PM</td>
+					<td class='step-details'>scrollViewDisplayed || RETURN: true<img data-featherlight='.//realizarScroll_scrollViewDisplayed_2020-01-15_22-01-40-866.png' width='10%' src='.//realizarScroll_scrollViewDisplayed_2020-01-15_22-01-40-866.png' data-src='.//realizarScroll_scrollViewDisplayed_2020-01-15_22-01-40-866.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:41 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>verificarMsgAlerta</span>
+						<span class='test-time'>Jan 15, 2020 10:01:42 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:01:42 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:02:01 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+678ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Alerts</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:55 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//verificarMsgAlerta_clickMenu_2020-01-15_22-01-55-280.png' width='10%' src='.//verificarMsgAlerta_clickMenu_2020-01-15_22-01-55-280.png' data-src='.//verificarMsgAlerta_clickMenu_2020-01-15_22-01-55-280.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:57 PM</td>
+					<td class='step-details'>clickAterts ||<img data-featherlight='.//verificarMsgAlerta_clickAterts_2020-01-15_22-01-57-298.png' width='10%' src='.//verificarMsgAlerta_clickAterts_2020-01-15_22-01-57-298.png' data-src='.//verificarMsgAlerta_clickAterts_2020-01-15_22-01-57-298.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:59 PM</td>
+					<td class='step-details'>clickAlerta ||<img data-featherlight='.//verificarMsgAlerta_clickAlerta_2020-01-15_22-01-59-168.png' width='10%' src='.//verificarMsgAlerta_clickAlerta_2020-01-15_22-01-59-168.png' data-src='.//verificarMsgAlerta_clickAlerta_2020-01-15_22-01-59-168.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:01 PM</td>
+					<td class='step-details'>getMessageText || RETURN: This is an alert<img data-featherlight='.//verificarMsgAlerta_getMessageText_2020-01-15_22-02-01-825.png' width='10%' src='.//verificarMsgAlerta_getMessageText_2020-01-15_22-02-01-825.png' data-src='.//verificarMsgAlerta_getMessageText_2020-01-15_22-02-01-825.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:01 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>verificarMsgModal</span>
+						<span class='test-time'>Jan 15, 2020 10:02:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:02:02 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:02:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 18s+227ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Alerts</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:16 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//verificarMsgModal_clickMenu_2020-01-15_22-02-15-925.png' width='10%' src='.//verificarMsgModal_clickMenu_2020-01-15_22-02-15-925.png' data-src='.//verificarMsgModal_clickMenu_2020-01-15_22-02-15-925.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:18 PM</td>
+					<td class='step-details'>clickAterts ||<img data-featherlight='.//verificarMsgModal_clickAterts_2020-01-15_22-02-17-970.png' width='10%' src='.//verificarMsgModal_clickAterts_2020-01-15_22-02-17-970.png' data-src='.//verificarMsgModal_clickAterts_2020-01-15_22-02-17-970.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:19 PM</td>
+					<td class='step-details'>clickToast ||<img data-featherlight='.//verificarMsgModal_clickToast_2020-01-15_22-02-19-879.png' width='10%' src='.//verificarMsgModal_clickToast_2020-01-15_22-02-19-879.png' data-src='.//verificarMsgModal_clickToast_2020-01-15_22-02-19-879.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:21 PM</td>
+					<td class='step-details'>getMessageModal || RETURN: This is a modal view<img data-featherlight='.//verificarMsgModal_getMessageModal_2020-01-15_22-02-21-132.png' width='10%' src='.//verificarMsgModal_getMessageModal_2020-01-15_22-02-21-132.png' data-src='.//verificarMsgModal_getMessageModal_2020-01-15_22-02-21-132.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:21 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>loginTest</span>
+						<span class='test-time'>Jan 15, 2020 10:02:22 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:02:22 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:02:50 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 28s+237ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Login</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:35 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//loginTest_clickMenu_2020-01-15_22-02-35-445.png' width='10%' src='.//loginTest_clickMenu_2020-01-15_22-02-35-445.png' data-src='.//loginTest_clickMenu_2020-01-15_22-02-35-445.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:37 PM</td>
+					<td class='step-details'>clickLoginPage ||<img data-featherlight='.//loginTest_clickLoginPage_2020-01-15_22-02-37-419.png' width='10%' src='.//loginTest_clickLoginPage_2020-01-15_22-02-37-419.png' data-src='.//loginTest_clickLoginPage_2020-01-15_22-02-37-419.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:41 PM</td>
+					<td class='step-details'>usernameFill || PARAMETER: admin<img data-featherlight='.//loginTest_usernameFill_2020-01-15_22-02-41-204.png' width='10%' src='.//loginTest_usernameFill_2020-01-15_22-02-41-204.png' data-src='.//loginTest_usernameFill_2020-01-15_22-02-41-204.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:45 PM</td>
+					<td class='step-details'>passwordFill || PARAMETER: password<img data-featherlight='.//loginTest_passwordFill_2020-01-15_22-02-45-321.png' width='10%' src='.//loginTest_passwordFill_2020-01-15_22-02-45-321.png' data-src='.//loginTest_passwordFill_2020-01-15_22-02-45-321.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:47 PM</td>
+					<td class='step-details'>clickLoginBtn ||<img data-featherlight='.//loginTest_clickLoginBtn_2020-01-15_22-02-47-508.png' width='10%' src='.//loginTest_clickLoginBtn_2020-01-15_22-02-47-508.png' data-src='.//loginTest_clickLoginBtn_2020-01-15_22-02-47-508.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:02:50 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='16'>
+					<div class='test-heading'>
+						<span class='test-name'>upNavigationFirst</span>
+						<span class='test-time'>Jan 15, 2020 10:02:51 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:02:51 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:03:08 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+645ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>NestedViews</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:04 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//upNavigationFirst_clickMenu_2020-01-15_22-03-04-732.png' width='10%' src='.//upNavigationFirst_clickMenu_2020-01-15_22-03-04-732.png' data-src='.//upNavigationFirst_clickMenu_2020-01-15_22-03-04-732.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:06 PM</td>
+					<td class='step-details'>clickNestedViewsBtn ||<img data-featherlight='.//upNavigationFirst_clickNestedViewsBtn_2020-01-15_22-03-06-703.png' width='10%' src='.//upNavigationFirst_clickNestedViewsBtn_2020-01-15_22-03-06-703.png' data-src='.//upNavigationFirst_clickNestedViewsBtn_2020-01-15_22-03-06-703.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:08 PM</td>
+					<td class='step-details'>verificarCountLevel || RETURN: This is the first view<img data-featherlight='.//upNavigationFirst_verificarCountLevel_2020-01-15_22-03-08-141.png' width='10%' src='.//upNavigationFirst_verificarCountLevel_2020-01-15_22-03-08-141.png' data-src='.//upNavigationFirst_verificarCountLevel_2020-01-15_22-03-08-141.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:08 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>upNavigationFourth</span>
+						<span class='test-time'>Jan 15, 2020 10:03:09 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:03:09 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:03:32 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 23s+391ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>NestedViews</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:21 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//upNavigationFourth_clickMenu_2020-01-15_22-03-21-645.png' width='10%' src='.//upNavigationFourth_clickMenu_2020-01-15_22-03-21-645.png' data-src='.//upNavigationFourth_clickMenu_2020-01-15_22-03-21-645.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:23 PM</td>
+					<td class='step-details'>clickNestedViewsBtn ||<img data-featherlight='.//upNavigationFourth_clickNestedViewsBtn_2020-01-15_22-03-23-412.png' width='10%' src='.//upNavigationFourth_clickNestedViewsBtn_2020-01-15_22-03-23-412.png' data-src='.//upNavigationFourth_clickNestedViewsBtn_2020-01-15_22-03-23-412.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:31 PM</td>
+					<td class='step-details'>clickNextButton ||<img data-featherlight='.//upNavigationFourth_clickNextButton_2020-01-15_22-03-31-186.png' width='10%' src='.//upNavigationFourth_clickNextButton_2020-01-15_22-03-31-186.png' data-src='.//upNavigationFourth_clickNextButton_2020-01-15_22-03-31-186.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:32 PM</td>
+					<td class='step-details'>verificarTxtFourth || RETURN: This is the fourth view<img data-featherlight='.//upNavigationFourth_verificarTxtFourth_2020-01-15_22-03-32-609.png' width='10%' src='.//upNavigationFourth_verificarTxtFourth_2020-01-15_22-03-32-609.png' data-src='.//upNavigationFourth_verificarTxtFourth_2020-01-15_22-03-32-609.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:32 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='18'>
+					<div class='test-heading'>
+						<span class='test-name'>upNavigationSecond</span>
+						<span class='test-time'>Jan 15, 2020 10:03:33 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:03:33 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:03:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 18s+761ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>NestedViews</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:46 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//upNavigationSecond_clickMenu_2020-01-15_22-03-46-463.png' width='10%' src='.//upNavigationSecond_clickMenu_2020-01-15_22-03-46-463.png' data-src='.//upNavigationSecond_clickMenu_2020-01-15_22-03-46-463.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:48 PM</td>
+					<td class='step-details'>clickNestedViewsBtn ||<img data-featherlight='.//upNavigationSecond_clickNestedViewsBtn_2020-01-15_22-03-48-289.png' width='10%' src='.//upNavigationSecond_clickNestedViewsBtn_2020-01-15_22-03-48-289.png' data-src='.//upNavigationSecond_clickNestedViewsBtn_2020-01-15_22-03-48-289.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:51 PM</td>
+					<td class='step-details'>clickNextButton ||<img data-featherlight='.//upNavigationSecond_clickNextButton_2020-01-15_22-03-51-036.png' width='10%' src='.//upNavigationSecond_clickNextButton_2020-01-15_22-03-51-036.png' data-src='.//upNavigationSecond_clickNextButton_2020-01-15_22-03-51-036.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:52 PM</td>
+					<td class='step-details'>verificarTxtSecond || RETURN: This is the second view<img data-featherlight='.//upNavigationSecond_verificarTxtSecond_2020-01-15_22-03-52-412.png' width='10%' src='.//upNavigationSecond_verificarTxtSecond_2020-01-15_22-03-52-412.png' data-src='.//upNavigationSecond_verificarTxtSecond_2020-01-15_22-03-52-412.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:03:52 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>upNavigationThird</span>
+						<span class='test-time'>Jan 15, 2020 10:03:53 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:03:53 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:04:14 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+34ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>NestedViews</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:04:06 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//upNavigationThird_clickMenu_2020-01-15_22-04-06-121.png' width='10%' src='.//upNavigationThird_clickMenu_2020-01-15_22-04-06-121.png' data-src='.//upNavigationThird_clickMenu_2020-01-15_22-04-06-121.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:04:08 PM</td>
+					<td class='step-details'>clickNestedViewsBtn ||<img data-featherlight='.//upNavigationThird_clickNestedViewsBtn_2020-01-15_22-04-08-003.png' width='10%' src='.//upNavigationThird_clickNestedViewsBtn_2020-01-15_22-04-08-003.png' data-src='.//upNavigationThird_clickNestedViewsBtn_2020-01-15_22-04-08-003.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:04:13 PM</td>
+					<td class='step-details'>clickNextButton ||<img data-featherlight='.//upNavigationThird_clickNextButton_2020-01-15_22-04-13-109.png' width='10%' src='.//upNavigationThird_clickNextButton_2020-01-15_22-04-13-109.png' data-src='.//upNavigationThird_clickNextButton_2020-01-15_22-04-13-109.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:04:14 PM</td>
+					<td class='step-details'>verificarTxtThird || RETURN: This is the third view<img data-featherlight='.//upNavigationThird_verificarTxtThird_2020-01-15_22-04-14-505.png' width='10%' src='.//upNavigationThird_verificarTxtThird_2020-01-15_22-04-14-505.png' data-src='.//upNavigationThird_verificarTxtThird_2020-01-15_22-04-14-505.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:04:14 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='20'>
+					<div class='test-heading'>
+						<span class='test-name'>manipularSpinnerSelection1</span>
+						<span class='test-time'>Jan 15, 2020 10:04:15 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:04:15 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:05:11 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 56s+84ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Spinner</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:04:27 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//manipularSpinnerSelection1_clickInputControls_2020-01-15_22-04-27-560.png' width='10%' src='.//manipularSpinnerSelection1_clickInputControls_2020-01-15_22-04-27-560.png' data-src='.//manipularSpinnerSelection1_clickInputControls_2020-01-15_22-04-27-560.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:05:11 PM</td>
+					<td class='step-details'>verificaSpinner1 || RETURN: true<img data-featherlight='.//manipularSpinnerSelection1_verificaSpinner1_2020-01-15_22-05-11-623.png' width='10%' src='.//manipularSpinnerSelection1_verificaSpinner1_2020-01-15_22-05-11-623.png' data-src='.//manipularSpinnerSelection1_verificaSpinner1_2020-01-15_22-05-11-623.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:05:11 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>manipularSpinnerSelection2</span>
+						<span class='test-time'>Jan 15, 2020 10:05:12 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:05:12 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:06:10 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 57s+571ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Spinner</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:05:25 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//manipularSpinnerSelection2_clickInputControls_2020-01-15_22-05-25-861.png' width='10%' src='.//manipularSpinnerSelection2_clickInputControls_2020-01-15_22-05-25-861.png' data-src='.//manipularSpinnerSelection2_clickInputControls_2020-01-15_22-05-25-861.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:06:10 PM</td>
+					<td class='step-details'>verificaSpinner2 || RETURN: true<img data-featherlight='.//manipularSpinnerSelection2_verificaSpinner2_2020-01-15_22-06-10-294.png' width='10%' src='.//manipularSpinnerSelection2_verificaSpinner2_2020-01-15_22-06-10-294.png' data-src='.//manipularSpinnerSelection2_verificaSpinner2_2020-01-15_22-06-10-294.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:06:10 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>manipularSpinnerSelection3</span>
+						<span class='test-time'>Jan 15, 2020 10:06:11 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:06:11 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:07:08 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 57s+60ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Spinner</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:06:24 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//manipularSpinnerSelection3_clickInputControls_2020-01-15_22-06-23-928.png' width='10%' src='.//manipularSpinnerSelection3_clickInputControls_2020-01-15_22-06-23-928.png' data-src='.//manipularSpinnerSelection3_clickInputControls_2020-01-15_22-06-23-928.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:07:08 PM</td>
+					<td class='step-details'>verificaSpinner3 || RETURN: true<img data-featherlight='.//manipularSpinnerSelection3_verificaSpinner3_2020-01-15_22-07-08-437.png' width='10%' src='.//manipularSpinnerSelection3_verificaSpinner3_2020-01-15_22-07-08-437.png' data-src='.//manipularSpinnerSelection3_verificaSpinner3_2020-01-15_22-07-08-437.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:07:08 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='23'>
+					<div class='test-heading'>
+						<span class='test-name'>manipularSpinnerSelection4</span>
+						<span class='test-time'>Jan 15, 2020 10:07:09 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:07:09 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:08:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 57s+142ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Spinner</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:07:22 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//manipularSpinnerSelection4_clickInputControls_2020-01-15_22-07-22-239.png' width='10%' src='.//manipularSpinnerSelection4_clickInputControls_2020-01-15_22-07-22-239.png' data-src='.//manipularSpinnerSelection4_clickInputControls_2020-01-15_22-07-22-239.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:08:06 PM</td>
+					<td class='step-details'>verificaSpinner4 || RETURN: true<img data-featherlight='.//manipularSpinnerSelection4_verificaSpinner4_2020-01-15_22-08-06-678.png' width='10%' src='.//manipularSpinnerSelection4_verificaSpinner4_2020-01-15_22-08-06-678.png' data-src='.//manipularSpinnerSelection4_verificaSpinner4_2020-01-15_22-08-06-678.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:08:06 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='24'>
+					<div class='test-heading'>
+						<span class='test-name'>manipularSpinnerSelection5</span>
+						<span class='test-time'>Jan 15, 2020 10:08:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:08:07 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:09:08 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 0s+273ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Spinner</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:08:20 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//manipularSpinnerSelection5_clickInputControls_2020-01-15_22-08-20-906.png' width='10%' src='.//manipularSpinnerSelection5_clickInputControls_2020-01-15_22-08-20-906.png' data-src='.//manipularSpinnerSelection5_clickInputControls_2020-01-15_22-08-20-906.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:09:08 PM</td>
+					<td class='step-details'>verificaSpinner5 || RETURN: true<img data-featherlight='.//manipularSpinnerSelection5_verificaSpinner5_2020-01-15_22-09-07-969.png' width='10%' src='.//manipularSpinnerSelection5_verificaSpinner5_2020-01-15_22-09-07-969.png' data-src='.//manipularSpinnerSelection5_verificaSpinner5_2020-01-15_22-09-07-969.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:09:08 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='25'>
+					<div class='test-heading'>
+						<span class='test-name'>informarTextoInput</span>
+						<span class='test-time'>Jan 15, 2020 10:09:09 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:09:09 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:10:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 53s+963ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>TextField</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:09:24 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//informarTextoInput_clickInputControls_2020-01-15_22-09-24-830.png' width='10%' src='.//informarTextoInput_clickInputControls_2020-01-15_22-09-24-830.png' data-src='.//informarTextoInput_clickInputControls_2020-01-15_22-09-24-830.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:10:00 PM</td>
+					<td class='step-details'>infoTexto || PARAMETER: teste larissa<img data-featherlight='.//informarTextoInput_infoTexto_2020-01-15_22-10-00-255.png' width='10%' src='.//informarTextoInput_infoTexto_2020-01-15_22-10-00-255.png' data-src='.//informarTextoInput_infoTexto_2020-01-15_22-10-00-255.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:10:03 PM</td>
+					<td class='step-details'>verificarTexto || RETURN: teste larissa<img data-featherlight='.//informarTextoInput_verificarTexto_2020-01-15_22-10-02-988.png' width='10%' src='.//informarTextoInput_verificarTexto_2020-01-15_22-10-02-988.png' data-src='.//informarTextoInput_verificarTexto_2020-01-15_22-10-02-988.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:10:03 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='26'>
+					<div class='test-heading'>
+						<span class='test-name'>verificarCampoVazio</span>
+						<span class='test-time'>Jan 15, 2020 10:10:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:10:04 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:10:50 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 46s+830ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>TextField</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:10:18 PM</td>
+					<td class='step-details'>clickInputControls ||<img data-featherlight='.//verificarCampoVazio_clickInputControls_2020-01-15_22-10-18-136.png' width='10%' src='.//verificarCampoVazio_clickInputControls_2020-01-15_22-10-18-136.png' data-src='.//verificarCampoVazio_clickInputControls_2020-01-15_22-10-18-136.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:10:50 PM</td>
+					<td class='step-details'>verificarTexto || RETURN: text field<img data-featherlight='.//verificarCampoVazio_verificarTexto_2020-01-15_22-10-50-882.png' width='10%' src='.//verificarCampoVazio_verificarTexto_2020-01-15_22-10-50-882.png' data-src='.//verificarCampoVazio_verificarTexto_2020-01-15_22-10-50-882.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:10:50 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='27'>
+					<div class='test-heading'>
+						<span class='test-name'>acessarWebview</span>
+						<span class='test-time'>Jan 15, 2020 10:10:52 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Jan 15, 2020 10:10:52 PM</span>
+	<span class='label end-time'>Jan 15, 2020 10:11:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 28s+502ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>Web</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:11:05 PM</td>
+					<td class='step-details'>clickMenu ||<img data-featherlight='.//acessarWebview_clickMenu_2020-01-15_22-11-05-252.png' width='10%' src='.//acessarWebview_clickMenu_2020-01-15_22-11-05-252.png' data-src='.//acessarWebview_clickMenu_2020-01-15_22-11-05-252.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:11:07 PM</td>
+					<td class='step-details'>clicklocalWebViewBtn ||<img data-featherlight='.//acessarWebview_clicklocalWebViewBtn_2020-01-15_22-11-07-212.png' width='10%' src='.//acessarWebview_clicklocalWebViewBtn_2020-01-15_22-11-07-212.png' data-src='.//acessarWebview_clicklocalWebViewBtn_2020-01-15_22-11-07-212.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:11:20 PM</td>
+					<td class='step-details'>verificaTexto || RETURN: true<img data-featherlight='.//acessarWebview_verificaTexto_2020-01-15_22-11-20-337.png' width='10%' src='.//acessarWebview_verificaTexto_2020-01-15_22-11-20-337.png' data-src='.//acessarWebview_verificaTexto_2020-01-15_22-11-20-337.png'></td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:11:20 PM</td>
+					<td class='step-details'>Test Result: pass</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Login</span>
+						<span class='category-status right'>
+							<span class='label pass'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 09:56:44 PM</td>
+										<td class='linked' test-id='1'>loginInvalido</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 09:57:18 PM</td>
+										<td class='linked' test-id='2'>loginInvalido</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:02:22 PM</td>
+										<td class='linked' test-id='15'>loginTest</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>InputControlsDatePicker</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 09:57:47 PM</td>
+										<td class='linked' test-id='3'>EntrarDatePicker</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 09:58:13 PM</td>
+										<td class='linked' test-id='4'>manipulardData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>InputControlsInfo</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 09:58:40 PM</td>
+										<td class='linked' test-id='5'>entrarMaisInfo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 09:59:00 PM</td>
+										<td class='linked' test-id='6'>clicarBotaoMaisInformacao</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Http</span>
+						<span class='category-status right'>
+							<span class='label pass'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 09:59:23 PM</td>
+										<td class='linked' test-id='7'>acessarSiteVazio</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 09:59:42 PM</td>
+										<td class='linked' test-id='8'>acessarUrlInvalida</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:00:04 PM</td>
+										<td class='linked' test-id='9'>acessarUrlValida</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>ImageCollection</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 10:00:25 PM</td>
+										<td class='linked' test-id='10'>checkIImageGalleryDisplayed</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>ContentOutView</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 10:00:46 PM</td>
+										<td class='linked' test-id='11'>visualizarTextoEscondido</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>ContentScrolling</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 10:01:17 PM</td>
+										<td class='linked' test-id='12'>realizarScroll</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Alerts</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 10:01:42 PM</td>
+										<td class='linked' test-id='13'>verificarMsgAlerta</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:02:02 PM</td>
+										<td class='linked' test-id='14'>verificarMsgModal</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>NestedViews</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 10:02:51 PM</td>
+										<td class='linked' test-id='16'>upNavigationFirst</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:03:09 PM</td>
+										<td class='linked' test-id='17'>upNavigationFourth</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:03:33 PM</td>
+										<td class='linked' test-id='18'>upNavigationSecond</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:03:53 PM</td>
+										<td class='linked' test-id='19'>upNavigationThird</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Spinner</span>
+						<span class='category-status right'>
+							<span class='label pass'>5</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 5</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 10:04:15 PM</td>
+										<td class='linked' test-id='20'>manipularSpinnerSelection1</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:05:12 PM</td>
+										<td class='linked' test-id='21'>manipularSpinnerSelection2</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:06:11 PM</td>
+										<td class='linked' test-id='22'>manipularSpinnerSelection3</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:07:09 PM</td>
+										<td class='linked' test-id='23'>manipularSpinnerSelection4</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:08:07 PM</td>
+										<td class='linked' test-id='24'>manipularSpinnerSelection5</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>TextField</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 10:09:09 PM</td>
+										<td class='linked' test-id='25'>informarTextoInput</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jan 15, 2020 10:10:04 PM</td>
+										<td class='linked' test-id='26'>verificarCampoVazio</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Web</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jan 15, 2020 10:10:52 PM</td>
+										<td class='linked' test-id='27'>acessarWebview</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>27</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>113</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jan 15, 2020 09:56:43 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jan 15, 2020 10:11:21 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 14m 37s+899ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>Login</td>
+							<td>3</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>InputControlsDatePicker</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>InputControlsInfo</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>Http</td>
+							<td>3</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>ImageCollection</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>ContentOutView</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>ContentScrolling</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>Alerts</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>NestedViews</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>Spinner</td>
+							<td>5</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>TextField</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>Web</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 27,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 113,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

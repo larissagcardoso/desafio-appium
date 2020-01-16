@@ -1,0 +1,23 @@
+<suite name = "Testes app AWS">
+<test name="Testes Android">
+    <classes>
+        <class name="com.templateJavaAppium.tests.android.AlertsTests"/>
+        <class name="com.templateJavaAppium.tests.android.CameraTests"/>
+        <class name="com.templateJavaAppium.tests.android.CheckBoxTests"/>
+        <class name="com.templateJavaAppium.tests.android.ContentOutViewTests"/>
+        <class name="com.templateJavaAppium.tests.android.ContentScrollingTests"/>
+        <class name="com.templateJavaAppium.tests.android.CrashTests"/>
+        <class name="com.templateJavaAppium.tests.android.FixturesTests"/>
+        <class name="com.templateJavaAppium.tests.android.GesturesTests"/>
+        <class name="com.templateJavaAppium.tests.android.ImageCollectionTests"/>
+        <class name="com.templateJavaAppium.tests.android.LoginTests"/>
+        <class name="com.templateJavaAppium.tests.android.NestedViewsTests"/>
+        <class name="com.templateJavaAppium.tests.android.PullRefreshTimeTests"/>
+        <class name="com.templateJavaAppium.tests.android.RadioButtonsTests"/>
+        <class name="com.templateJavaAppium.tests.android.SpinnerTests"/>
+        <class name="com.templateJavaAppium.tests.android.TextFieldTests"/>
+        <class name="com.templateJavaAppium.tests.android.ToggleButtonTests"/>
+        <class name="com.templateJavaAppium.tests.android.VideoPlayerTests"/>
+    </classes>
+</test>
+        </suite>

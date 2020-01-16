@@ -1,0 +1,19 @@
+<suite name = "Testes app AWS">
+<test name="Testes iOS">
+    <classes>
+        <class name="com.templateJavaAppium.tests.ios.AlertsTests"/>
+        <class name="com.templateJavaAppium.tests.ios.ContentOutViewTests"/>
+        <class name="com.templateJavaAppium.tests.ios.ContentScrollingTests"/>
+        <class name="com.templateJavaAppium.tests.ios.HttpTests"/>
+        <class name="com.templateJavaAppium.tests.ios.ImageCollectionTests"/>
+        <class name="com.templateJavaAppium.tests.ios.InputControlsDatePickerTests"/>
+        <class name="com.templateJavaAppium.tests.ios.InputControlsInfoTests"/>
+        <class name="com.templateJavaAppium.tests.ios.LoginTests"/>
+        <class name="com.templateJavaAppium.tests.ios.NestedViewsTests"/>
+        <class name="com.templateJavaAppium.tests.ios.NestedViewsTests"/>
+        <class name="com.templateJavaAppium.tests.ios.SpinnerTests"/>
+        <class name="com.templateJavaAppium.tests.ios.TextFieldTests"/>
+        <class name="com.templateJavaAppium.tests.ios.WebTests"/>
+    </classes>
+</test>
+        </suite>
