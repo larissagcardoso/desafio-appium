@@ -7,7 +7,7 @@
 	 - Framework interação com elementos web - [Selenium.WebDriver 3.141.59](https://www.seleniumhq.org/download/ "Selenium.WebDriver")
      - Framework interação com elementos mobile - [Appium 1.13.0](http://appium.io/ "Appium") 
 
-##Metas
+## Metas
 
 **Android**
 - [x]	1) Implementar 25 scripts de testes que manipulem um aplicativo móvel Android com Page Objects. 
