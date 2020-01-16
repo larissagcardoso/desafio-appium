@@ -30,6 +30,7 @@
 ## Execução na Nuvem
 
 O arquivo com as configurasções do Device Farm BrowserStack está no diretório do projeto:
-[Configurações BrowserStack ](https://github.com/larissagcardoso/desafio-appium/blob/master/Execução_testes_BrowserStack.docx).
+[Configurações BrowserStack ](https://github.com/larissagcardoso/desafio-appium/blob/master/Execucao_testes_BrowserStack.docx).
+
 
 
